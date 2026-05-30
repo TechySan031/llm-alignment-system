@@ -1,0 +1,80 @@
+{
+  "run_id": "8a2ce335-af7c-4af5-964f-0c2399676cd4",
+  "model_id": "base_model",
+  "model_stage": "base",
+  "n_examples": 5,
+  "n_tasks": 2,
+  "exact_match": 0.0,
+  "format_valid": 0.0,
+  "schema_compliant": 0.0,
+  "instruction_followed": 0.0,
+  "hallucination_rate": 0.0,
+  "avg_bleu": 0.028,
+  "avg_rouge_l": 0.0271,
+  "avg_field_f1": 0.0,
+  "avg_alignment_score": 0.2027,
+  "avg_latency_ms": 8941.0,
+  "p95_latency_ms": 13351.4,
+  "avg_tokens_per_second": 69.2,
+  "by_task": {
+    "instruction_following": {
+      "task_type": "instruction_following",
+      "n_examples": 3,
+      "exact_match": 0.0,
+      "format_valid": 0.0,
+      "schema_compliant": 0.0,
+      "instruction_followed": 0.0,
+      "hallucination_rate": 0.0,
+      "avg_bleu": 0.0426,
+      "avg_rouge_l": 0.0378,
+      "avg_field_f1": 0.0,
+      "avg_alignment_score": 0.2038,
+      "avg_latency_ms": 10566.7
+    },
+    "structured_extraction": {
+      "task_type": "structured_extraction",
+      "n_examples": 2,
+      "exact_match": 0.0,
+      "format_valid": 0.0,
+      "schema_compliant": 0.0,
+      "instruction_followed": 0.0,
+      "hallucination_rate": 0.0,
+      "avg_bleu": 0.0062,
+      "avg_rouge_l": 0.0111,
+      "avg_field_f1": 0.0,
+      "avg_alignment_score": 0.2011,
+      "avg_latency_ms": 6495.2
+    }
+  },
+  "by_difficulty": {
+    "medium": {
+      "difficulty": "medium",
+      "n_examples": 2,
+      "format_valid": 0.0,
+      "instruction_followed": 0.0,
+      "hallucination_rate": 0.0,
+      "avg_alignment_score": 0.2036
+    },
+    "easy": {
+      "difficulty": "easy",
+      "n_examples": 3,
+      "format_valid": 0.0,
+      "instruction_followed": 0.0,
+      "hallucination_rate": 0.0,
+      "avg_alignment_score": 0.2021
+    }
+  },
+  "failure_mode_counts": {
+    "format_error": 5
+  },
+  "evaluated_at": "2026-05-30T09:52:47.842559",
+  "best_strategy": "zero_shot",
+  "all_strategy_scores": {
+    "zero_shot": {
+      "alignment_score": 20.3,
+      "format_valid": 0.0,
+      "field_f1": 0.0,
+      "hallucination": 0.0
+    }
+  }
+}

@@ -120,3 +120,10 @@ def get_system_info() -> dict:
         info["gpu_count"] = torch.cuda.device_count()
 
     return info
+
+    # Backward compatibility alias
+def set_seed(seed: int = 42) -> None:
+    """
+    Alias for seed_everything().
+    """
+    seed_everything(seed)
