@@ -1,0 +1,84 @@
+01:25:48 | INFO     | llm_alignment                    | 15316 | Logging initialised | level=INFO | file=outputs\logs\training\setup_check_20260530_012548.log | colour=on
+01:25:48 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:48 | INFO     | llm_alignment                    | 15316 | LLM Alignment System — Environment Check
+01:25:48 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:48 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:48 | INFO     | llm_alignment                    | 15316 | Package versions
+01:25:48 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:52 | DEBUG    | git.cmd                          | 15316 | Popen(['git', 'version'], cwd=C:\Projects\llm-alignment-system, stdin=None, shell=False, universal_newlines=False)
+01:25:52 | DEBUG    | git.cmd                          | 15316 | Popen(['git', 'version'], cwd=C:\Projects\llm-alignment-system, stdin=None, shell=False, universal_newlines=False)
+01:25:53 | DEBUG    | wandb.docker.auth                | 15316 | Trying paths: ['C:\\Users\\saniy\\.docker\\config.json', 'C:\\Users\\saniy\\.dockercfg']
+01:25:53 | DEBUG    | wandb.docker.auth                | 15316 | Found file at path: C:\Users\saniy\.docker\config.json
+01:25:53 | DEBUG    | wandb.docker.auth                | 15316 | Found 'credsStore' section
+01:25:57 | DEBUG    | faker.factory                    | 15316 | Not in REPL -> leaving logger event level as is.
+01:25:59 | INFO     | llm_alignment                    | 15316 | Installed packages
+01:25:59 | INFO     | llm_alignment                    | 15316 |   torch          2.10.0
+01:25:59 | INFO     | llm_alignment                    | 15316 |   transformers   4.44.2
+01:25:59 | INFO     | llm_alignment                    | 15316 |   peft           0.12.0
+01:25:59 | INFO     | llm_alignment                    | 15316 |   trl            0.10.1
+01:25:59 | INFO     | llm_alignment                    | 15316 |   datasets       2.21.0
+01:25:59 | INFO     | llm_alignment                    | 15316 |   accelerate     0.34.2
+01:25:59 | INFO     | llm_alignment                    | 15316 |   bitsandbytes   MISSING
+01:25:59 | INFO     | llm_alignment                    | 15316 |   wandb          0.17.9
+01:25:59 | INFO     | llm_alignment                    | 15316 |   omegaconf      2.3.0
+01:25:59 | INFO     | llm_alignment                    | 15316 |   pydantic       2.8.2
+01:25:59 | INFO     | llm_alignment                    | 15316 |   faker          installed
+01:25:59 | INFO     | llm_alignment                    | 15316 |   fastapi        0.112.2
+01:25:59 | WARNING  | llm_alignment                    | 15316 | Missing packages: ['bitsandbytes']
+Install with: pip install -r requirements.txt
+01:25:59 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:59 | INFO     | llm_alignment                    | 15316 | System information
+01:25:59 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:59 | INFO     | src.utils.reproducibility        | 15316 | ============================================================
+01:25:59 | INFO     | src.utils.reproducibility        | 15316 | SYSTEM INFORMATION
+01:25:59 | INFO     | src.utils.reproducibility        | 15316 | ============================================================
+01:25:59 | INFO     | src.utils.reproducibility        | 15316 | Platform: Windows-10-10.0.26200-SP0
+01:25:59 | INFO     | src.utils.reproducibility        | 15316 | Python: 3.11.15
+01:25:59 | INFO     | src.utils.reproducibility        | 15316 | PyTorch: 2.10.0
+01:25:59 | INFO     | src.utils.reproducibility        | 15316 | CUDA Available: False
+01:25:59 | INFO     | src.utils.reproducibility        | 15316 | Device: CPU
+01:25:59 | INFO     | src.utils.reproducibility        | 15316 | ============================================================
+01:25:59 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:59 | INFO     | llm_alignment                    | 15316 | GPU / compute diagnostics
+01:25:59 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:59 | INFO     | llm_alignment                    | 15316 | No CUDA GPU detected.
+This is correct for local Windows/AMD development.
+Use Qwen/Qwen2.5-0.5B-Instruct for local testing.
+Use a cloud GPU (Colab/RunPod) for 7B model training.
+01:25:59 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:59 | INFO     | llm_alignment                    | 15316 | Quantization availability
+01:25:59 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:59 | DEBUG    | src.models.quantization          | 15316 | [Quantization] CUDA not available — quantization disabled
+01:25:59 | INFO     | llm_alignment                    | 15316 | 4-bit quantization (bitsandbytes): DISABLED (no CUDA)
+01:25:59 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:59 | INFO     | llm_alignment                    | 15316 | VRAM requirements for Qwen/Qwen2.5-7B-Instruct
+01:25:59 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:59 | INFO     | llm_alignment                    | 15316 | CPU mode — VRAM requirements do not apply.
+For local testing use: Qwen/Qwen2.5-0.5B-Instruct
+  float32 memory requirement: ~2 GB RAM
+For cloud training:
+  Qwen/Qwen2.5-7B-Instruct with QLoRA NF4: ~6 GB VRAM
+  Runs on: T4 (16GB), RTX 3090 (24GB), A100 (40/80GB)
+01:25:59 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:59 | INFO     | llm_alignment                    | 15316 | Summary and next steps
+01:25:59 | INFO     | llm_alignment                    | 15316 | ════════════════════════════════════════════════════════════
+01:25:59 | INFO     | llm_alignment                    | 15316 | Local machine (Windows AMD): READY for development
+
+What you can do locally:
+  python scripts/generate_dataset.py    (Phase 1 dataset)
+  python scripts/run_baseline.py        (Phase 3 baseline evaluation)
+  pytest tests/ -v                      (all tests)
+
+For training on Qwen2.5-7B, use one of:
+  Google Colab (Free T4 or Pro A100):
+    !git clone your_repo && pip install -e . && python scripts/train_sft.py
+
+  Kaggle (2× T4, free):
+    Add repo as dataset, run scripts/train_sft.py in a notebook
+
+  RunPod (RTX 3090 ~$0.30/hr, A100 ~$1.50/hr):
+    runpod.io → deploy PyTorch pod → git clone → pip install -e .
+
+  Vast.ai (cheapest A100 rates):
+    vastai.com → search 'A100 80GB' → install → train
+01:25:59 | INFO     | llm_alignment                    | 15316 | Environment check complete
