@@ -71,6 +71,9 @@ The system combines LLM engineering, model alignment, evaluation science, resear
 
 ## System Architecture
 
+![Architecture](docs/images/image.png)
+
+
 ```text
 ┌─────────────────────────────────────────────┐
 │                DATA LAYER                   │
