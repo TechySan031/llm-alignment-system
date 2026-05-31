@@ -1,3 +1,0 @@
-run_name,model_stage,evaluated_at,format_valid,schema_compliant,instruction_followed,hallucination_rate,avg_alignment_score,avg_bleu,avg_rouge_l,avg_field_f1,avg_latency_ms,p95_latency_ms,avg_tokens_per_second,n_examples
-base_model,base,2026-05-30T09:52:47.873445Z,0.0,0.0,0.0,0.0,0.2027,0.028,0.0271,0.0,8941.0,13351.4,69.2,5
-base_model,base,2026-05-30T10:22:45.045777Z,0.4,0.4,0.25,0.1,0.4137,0.3333,0.3438,0.2456,23890.2,43182.2,11.9,20

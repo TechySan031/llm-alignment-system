@@ -1,66 +1,40 @@
 # Python
-
-**pycache**/
+__pycache__/
 *.py[cod]
-*$py.class
+*.pyo
 
 # Virtual environments
-
 .venv/
 venv/
 env/
-ENV/
-
-# Conda
-
-.conda/
-
-# Distribution / packaging
-
-build/
-dist/
-*.egg-info/
-
-# Testing
-
-.pytest_cache/
-.coverage
-htmlcov/
-
-# Jupyter
-
-.ipynb_checkpoints/
 
 # Logs
-
-*.log
+logs/
 outputs/logs/
+outputs/reports/
 
-# Environment variables
+# Metrics
+metrics/
 
-.env
-.env.*
+# Experiment outputs
+experiments/
+!experiments/.gitkeep
 
-# IDEs
-
-.vscode/
-.idea/
-
-# OS files
-
-.DS_Store
-Thumbs.db
-
-# Generated datasets (optional)
-
+# Processed datasets
 data/processed/
 
-# Model checkpoints (optional)
-
+# Training artifacts
 checkpoints/
 models/
+*.safetensors
+*.bin
 
-# Temporary files
+# W&B
+wandb/
 
-*.tmp
-*.bak
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
