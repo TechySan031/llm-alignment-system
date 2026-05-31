@@ -1,80 +1,119 @@
 {
-  "run_id": "8a2ce335-af7c-4af5-964f-0c2399676cd4",
+  "run_id": "167f2722-1517-496b-98af-f157cf9da5b9",
   "model_id": "base_model",
   "model_stage": "base",
-  "n_examples": 5,
-  "n_tasks": 2,
+  "n_examples": 20,
+  "n_tasks": 3,
   "exact_match": 0.0,
-  "format_valid": 0.0,
-  "schema_compliant": 0.0,
-  "instruction_followed": 0.0,
-  "hallucination_rate": 0.0,
-  "avg_bleu": 0.028,
-  "avg_rouge_l": 0.0271,
-  "avg_field_f1": 0.0,
-  "avg_alignment_score": 0.2027,
-  "avg_latency_ms": 8941.0,
-  "p95_latency_ms": 13351.4,
-  "avg_tokens_per_second": 69.2,
+  "format_valid": 0.4,
+  "schema_compliant": 0.4,
+  "instruction_followed": 0.25,
+  "hallucination_rate": 0.1,
+  "avg_bleu": 0.3333,
+  "avg_rouge_l": 0.3438,
+  "avg_field_f1": 0.2456,
+  "avg_alignment_score": 0.4137,
+  "avg_latency_ms": 23890.2,
+  "p95_latency_ms": 43182.2,
+  "avg_tokens_per_second": 11.9,
   "by_task": {
     "instruction_following": {
       "task_type": "instruction_following",
-      "n_examples": 3,
+      "n_examples": 12,
       "exact_match": 0.0,
-      "format_valid": 0.0,
-      "schema_compliant": 0.0,
-      "instruction_followed": 0.0,
+      "format_valid": 0.1667,
+      "schema_compliant": 0.1667,
+      "instruction_followed": 0.1667,
       "hallucination_rate": 0.0,
-      "avg_bleu": 0.0426,
-      "avg_rouge_l": 0.0378,
-      "avg_field_f1": 0.0,
-      "avg_alignment_score": 0.2038,
-      "avg_latency_ms": 10566.7
+      "avg_bleu": 0.1709,
+      "avg_rouge_l": 0.1621,
+      "avg_field_f1": 0.0697,
+      "avg_alignment_score": 0.31,
+      "avg_latency_ms": 18348.7
     },
     "structured_extraction": {
       "task_type": "structured_extraction",
+      "n_examples": 6,
+      "exact_match": 0.0,
+      "format_valid": 1.0,
+      "schema_compliant": 1.0,
+      "instruction_followed": 0.5,
+      "hallucination_rate": 0.3333,
+      "avg_bleu": 0.7054,
+      "avg_rouge_l": 0.7614,
+      "avg_field_f1": 0.6793,
+      "avg_alignment_score": 0.6864,
+      "avg_latency_ms": 31239.1
+    },
+    "alignment_eval": {
+      "task_type": "alignment_eval",
       "n_examples": 2,
       "exact_match": 0.0,
       "format_valid": 0.0,
       "schema_compliant": 0.0,
       "instruction_followed": 0.0,
       "hallucination_rate": 0.0,
-      "avg_bleu": 0.0062,
-      "avg_rouge_l": 0.0111,
+      "avg_bleu": 0.1911,
+      "avg_rouge_l": 0.1811,
       "avg_field_f1": 0.0,
-      "avg_alignment_score": 0.2011,
-      "avg_latency_ms": 6495.2
+      "avg_alignment_score": 0.2181,
+      "avg_latency_ms": 35066.6
     }
   },
   "by_difficulty": {
     "medium": {
       "difficulty": "medium",
-      "n_examples": 2,
-      "format_valid": 0.0,
-      "instruction_followed": 0.0,
+      "n_examples": 12,
+      "format_valid": 0.25,
+      "instruction_followed": 0.25,
       "hallucination_rate": 0.0,
-      "avg_alignment_score": 0.2036
+      "avg_alignment_score": 0.3679
     },
     "easy": {
       "difficulty": "easy",
       "n_examples": 3,
-      "format_valid": 0.0,
+      "format_valid": 0.6667,
+      "instruction_followed": 0.3333,
+      "hallucination_rate": 0.3333,
+      "avg_alignment_score": 0.5095
+    },
+    "adversarial": {
+      "difficulty": "adversarial",
+      "n_examples": 2,
+      "format_valid": 1.0,
+      "instruction_followed": 0.5,
+      "hallucination_rate": 0.5,
+      "avg_alignment_score": 0.6122
+    },
+    "hard": {
+      "difficulty": "hard",
+      "n_examples": 3,
+      "format_valid": 0.3333,
       "instruction_followed": 0.0,
       "hallucination_rate": 0.0,
-      "avg_alignment_score": 0.2021
+      "avg_alignment_score": 0.3689
     }
   },
   "failure_mode_counts": {
-    "format_error": 5
+    "format_error": 12,
+    "field_hallucination": 2,
+    "instruction_ignored": 3,
+    "none": 3
   },
-  "evaluated_at": "2026-05-30T09:52:47.842559",
+  "evaluated_at": "2026-05-30T10:16:03.788003",
   "best_strategy": "zero_shot",
   "all_strategy_scores": {
     "zero_shot": {
-      "alignment_score": 20.3,
-      "format_valid": 0.0,
-      "field_f1": 0.0,
-      "hallucination": 0.0
+      "alignment_score": 41.4,
+      "format_valid": 40.0,
+      "field_f1": 24.6,
+      "hallucination": 10.0
+    },
+    "few_shot": {
+      "alignment_score": 29.6,
+      "format_valid": 25.0,
+      "field_f1": 4.3,
+      "hallucination": 25.0
     }
   }
 }

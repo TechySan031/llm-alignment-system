@@ -1,0 +1,46 @@
+# @package _global_
+# Minimal config for local Windows/AMD testing with a small model
+
+lora:
+  r: 8
+  lora_alpha: 16
+  target_modules:
+    - "q_proj"
+    - "v_proj"
+  lora_dropout: 0.05
+  bias: "none"
+  task_type: "CAUSAL_LM"
+
+training:
+  output_dir: "experiments/sft_runs/local_test"
+  num_train_epochs: 1
+  max_steps: 50                         # Hard cap for fast local testing
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 2
+  gradient_accumulation_steps: 1
+  learning_rate: 2.0e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  lr_scheduler_type: "cosine"
+  max_grad_norm: 1.0
+  bf16: false
+  fp16: false                           # CPU: always float32
+  logging_steps: 5
+  report_to: "none"                     # No W&B for local testing
+  run_name: "sft-local-test"
+  eval_steps: 25
+  save_steps: 50
+  save_total_limit: 1
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false
+  dataloader_num_workers: 0             # 0 on Windows (avoid multiprocessing)
+  group_by_length: false
+  overfit_threshold: 0.5
+  overfit_patience: 5
+  seed: 42
+
+tokenizer:
+  padding_side: "right"
+  max_length: 512                       # Short sequences for fast local testing
+  add_special_tokens: true

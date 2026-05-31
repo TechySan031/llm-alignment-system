@@ -1,0 +1,75 @@
+# @package _global_
+
+# ─── LoRA configuration ────────────────────────────────────────────────────
+lora:
+  r: 16
+  lora_alpha: 32
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  lora_dropout: 0.05
+  bias: "none"
+  task_type: "CAUSAL_LM"
+
+# ─── Training hyperparameters ──────────────────────────────────────────────
+training:
+  output_dir: "experiments/sft_runs/run_001"
+  num_train_epochs: 3
+  max_steps: -1                         # -1 = use num_train_epochs
+
+  # Batch sizes — adjust for your GPU VRAM
+  # A100 40GB:  per_device=4, grad_accum=4  → effective=16
+  # RTX 4090:   per_device=2, grad_accum=8  → effective=16
+  # T4 16GB:    per_device=1, grad_accum=16 → effective=16
+  # CPU (test): per_device=1, grad_accum=1  → effective=1
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 8
+  gradient_accumulation_steps: 4
+
+  # Optimisation
+  learning_rate: 2.0e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+  lr_scheduler_type: "cosine"
+  max_grad_norm: 1.0
+
+  # Precision — auto-detected in code, but set here for clarity
+  bf16: true
+  fp16: false
+
+  # Logging
+  logging_steps: 10
+  report_to: "wandb"                    # "none" for local testing
+  run_name: "sft-qwen2.5-7b-r16"
+
+  # Evaluation
+  eval_steps: 100
+
+  # Checkpointing
+  save_steps: 200
+  save_total_limit: 3
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false
+
+  # Data loading
+  dataloader_num_workers: 4             # 0 for Windows (multiprocessing issues)
+  group_by_length: true
+
+  # Early stopping
+  overfit_threshold: 0.35
+  overfit_patience: 3
+
+  # Reproducibility
+  seed: 42
+
+# ─── Tokenizer ────────────────────────────────────────────────────────────
+tokenizer:
+  padding_side: "right"
+  max_length: 2048
+  add_special_tokens: true

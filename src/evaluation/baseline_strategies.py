@@ -45,8 +45,11 @@ from typing import Optional
 
 from transformers import PreTrainedTokenizer
 
+# pyrefly: ignore [missing-import]
 from src.data.schemas import SFTExample, TaskType
+# pyrefly: ignore [missing-import]
 from src.models.tokenizer_loader import get_system_prompt, format_messages_prompt
+# pyrefly: ignore [missing-import]
 from src.utils.logging import get_logger
 
 logger = get_logger(__name__)
@@ -437,3 +440,41 @@ def get_strategy(name: str) -> BaseStrategy:
             f"Valid options: {list(mapping.keys())}"
         )
     return mapping[name]
+
+    # ─────────────────────────────────────────────────────────────────────────────
+# Strategy selection helper
+# ─────────────────────────────────────────────────────────────────────────────
+
+def pick_best_strategy(strategy_results: dict):
+    """
+    Select the best-performing strategy from benchmark results.
+
+    Expects a dictionary:
+
+        {
+            "zero_shot": BenchmarkResult,
+            "few_shot": BenchmarkResult,
+            ...
+        }
+
+    The strategy with the highest alignment score is returned.
+    """
+
+    if not strategy_results:
+        raise ValueError("No strategy results provided")
+
+    def score(result):
+        if hasattr(result, "avg_alignment_score"):
+            return result.avg_alignment_score
+        if hasattr(result, "overall_score"):
+            return result.overall_score
+        if hasattr(result, "score"):
+            return result.score
+        return 0.0
+
+    best_name, best_result = max(
+        strategy_results.items(),
+        key=lambda kv: score(kv[1]),
+    )
+
+    return best_name, best_result

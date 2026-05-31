@@ -1,0 +1,18 @@
+model:
+  name: "Qwen/Qwen2.5-7B-Instruct"
+
+tokenizer:
+  name: "Qwen/Qwen2.5-7B-Instruct"
+
+quantization:
+  enabled: false
+  load_in_4bit: false
+  load_in_8bit: false
+
+generation:
+  max_new_tokens: 512
+  temperature: 0.7
+  top_p: 0.9
+
+hardware:
+  device: "auto"
