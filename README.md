@@ -159,27 +159,121 @@ Deployment Layer
 ```text
 llm-alignment-system/
 
-├── src/
-│   ├── data/
-│   ├── models/
-│   ├── training/
-│   ├── evaluation/
-│   ├── inference/
-│   ├── monitoring/
-│   ├── deployment/
-│   ├── research/
-│   ├── retrieval/
-│   ├── visualization/
-│   └── utils/
-│
-├── tests/
-├── scripts/
-├── notebooks/
-├── outputs/
-│
-├── environment.yaml
-├── pyproject.toml
-└── README.md
+# System Architecture
+
+```
+┌─────────────────────────────────────────────┐
+│                DATA LAYER                   │
+├─────────────────────────────────────────────┤
+│ Synthetic Data Generation                   │
+│ Schema Validation & Quality Control         │
+│ Dataset Processing & Preparation            │
+└─────────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────┐
+│               MODEL LAYER                   │
+├─────────────────────────────────────────────┤
+│ Qwen 2.5 Foundation Models                  │
+│ LoRA / PEFT Configuration                   │
+│ Quantization & Memory Optimization          │
+└─────────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────┐
+│             ALIGNMENT LAYER                 │
+├─────────────────────────────────────────────┤
+│ Baseline Evaluation                         │
+│ Supervised Fine-Tuning (SFT)                │
+│ Direct Preference Optimization (DPO)        │
+│ Checkpointing & Experiment Tracking         │
+└─────────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────┐
+│            EVALUATION LAYER                 │
+├─────────────────────────────────────────────┤
+│ Benchmarking                                │
+│ JSON Schema Compliance                      │
+│ Hallucination Analysis                      │
+│ Perplexity & Quality Metrics                │
+│ Cross-Stage Comparison (Base → SFT → DPO)   │
+└─────────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────┐
+│             RESEARCH LAYER                  │
+├─────────────────────────────────────────────┤
+│ Attention Analysis                          │
+│ Gradient Flow Analysis                      │
+│ Layer Drift Measurement                     │
+│ Representation Similarity                   │
+│ Catastrophic Forgetting Studies             │
+└─────────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────┐
+│             SERVING LAYER                   │
+├─────────────────────────────────────────────┤
+│ Inference Engine                            │
+│ FastAPI Service                             │
+│ Request Batching                            │
+│ Streaming Responses                         │
+└─────────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────┐
+│           OBSERVABILITY LAYER               │
+├─────────────────────────────────────────────┤
+│ GPU Monitoring                              │
+│ Latency Tracking                            │
+│ Throughput Analytics                        │
+│ Resource Utilization                        │
+└─────────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────┐
+│            DEPLOYMENT LAYER                 │
+├─────────────────────────────────────────────┤
+│ Docker Containers                           │
+│ Model Registry                              │
+│ Health Monitoring                           │
+│ Kubernetes & Autoscaling                    │
+└─────────────────────────────────────────────┘
+```
+
+### Alignment Workflow
+
+```
+Synthetic Dataset
+        │
+        ▼
+   Base Model
+        │
+        ▼
+  Baseline Metrics
+        │
+        ▼
+      SFT
+        │
+        ▼
+   SFT Metrics
+        │
+        ▼
+      DPO
+        │
+        ▼
+   DPO Metrics
+        │
+        ▼
+Benchmark Comparison
+        │
+        ▼
+Research Analysis
+        │
+        ▼
+Production Deployment
+
 ```
 
 ---
