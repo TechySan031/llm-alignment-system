@@ -71,7 +71,7 @@ The system combines LLM engineering, model alignment, evaluation science, resear
 
 ## System Architecture
 
-![Architecture](docs/images/architecture.png)
+![Architecture](docs/images/architecture1.png)
 
 
 ```text
