@@ -1,167 +1,77 @@
 # LLM Alignment System
 
-A production-oriented framework for studying, implementing, and evaluating modern Large Language Model (LLM) alignment techniques including Supervised Fine-Tuning (SFT), Direct Preference Optimization (DPO), parameter-efficient adaptation, benchmarking, and model behavior analysis.
+> Production-Style LLM Alignment Platform implementing Synthetic Data Generation, Supervised Fine-Tuning (SFT), Direct Preference Optimization (DPO), Evaluation, Research Analysis, Monitoring, and Deployment Workflows.
 
 ---
 
 ## Overview
 
-This project explores the complete lifecycle of LLM alignment:
+LLM Alignment System is an end-to-end framework for studying and implementing modern language model alignment techniques.
 
-* Synthetic dataset generation
-* Instruction tuning using SFT
-* Preference optimization using DPO
-* LoRA / PEFT adaptation
-* Evaluation and benchmarking
-* Model behavior analysis
-* Training monitoring
-* FastAPI-based inference serving
-* Research-focused interpretability experiments
-
-The system is designed as an end-to-end AI engineering project that combines deep learning, modern LLM training pipelines, MLOps concepts, evaluation frameworks, and deployment practices.
-
----
-
-## Objectives
-
-### Alignment Goals
-
-* Improve instruction-following behavior
-* Increase structured output accuracy
-* Reduce hallucinations
-* Improve response consistency
-* Study preference optimization techniques
-* Compare baseline vs aligned model behavior
-
-### Engineering Goals
-
-* Build reproducible training pipelines
-* Create modular evaluation workflows
-* Implement deployment-ready APIs
-* Monitor model performance and resource usage
-* Analyze training dynamics and model representations
-
----
-
-## Project Architecture
+The project follows a complete alignment pipeline:
 
 ```text
-Data Layer
-│
-├── Synthetic Dataset Generation
-├── Data Validation
-├── Tokenization
-└── Dataset Processing
-
-Models Layer
-│
-├── Model Loading
-├── LoRA / PEFT Configuration
-├── Quantization Utilities
-└── Architecture Inspection
-
-Training Layer
-│
-├── Supervised Fine-Tuning (SFT)
-├── Direct Preference Optimization (DPO)
-├── Checkpoint Management
-└── Training Callbacks
-
-Evaluation Layer
-│
-├── Benchmarking
-├── JSON Validation
-├── Hallucination Analysis
-├── Perplexity Analysis
-└── Cross-Model Comparison
-
-Research Layer
-│
-├── Attention Analysis
-├── Gradient Analysis
-├── Layer Drift Analysis
-├── Representation Similarity
-└── Catastrophic Forgetting Studies
-
-Inference Layer
-│
-├── Inference Engine
-├── FastAPI Service
-├── Batching
-└── Streaming
-
-Monitoring Layer
-│
-├── GPU Monitoring
-├── Throughput Tracking
-├── Latency Tracking
-└── Resource Monitoring
-
-Deployment Layer
-│
-├── Docker
-├── Model Registry
-├── Health Checks
-└── Autoscaling
+Synthetic Dataset Generation
+          ↓
+     Base Model
+          ↓
+ Baseline Evaluation
+          ↓
+Supervised Fine-Tuning (SFT)
+          ↓
+Direct Preference Optimization (DPO)
+          ↓
+Benchmark Comparison
+          ↓
+Research Analysis
+          ↓
+Production Deployment
 ```
+
+The system combines LLM engineering, model alignment, evaluation science, research tooling, and MLOps practices into a single production-oriented project.
 
 ---
 
-## Technology Stack
+## Key Features
 
-### Deep Learning
+### Alignment Pipeline
 
-* PyTorch
-* Transformers
-* Accelerate
-* PEFT
-* TRL
+* Synthetic Dataset Generation
+* Supervised Fine-Tuning (SFT)
+* Direct Preference Optimization (DPO)
+* Preference Dataset Construction
+* LoRA / PEFT Adaptation
 
-### Data Processing
+### Evaluation Framework
 
-* Datasets
-* Pandas
-* NumPy
-* Scikit-Learn
-
-### Evaluation
-
-* ROUGE
-* NLTK
+* Benchmarking Pipeline
 * JSON Schema Validation
-* Custom Benchmark Framework
+* Hallucination Detection
+* Perplexity Analysis
+* Cross-Model Comparison
 
-### Experiment Tracking
+### Research Tooling
 
-* Weights & Biases
-* TensorBoard
+* Attention Analysis
+* Gradient Flow Analysis
+* Layer Drift Measurement
+* Representation Similarity
+* Catastrophic Forgetting Studies
 
-### Serving
+### Production Infrastructure
 
-* FastAPI
-* Uvicorn
-
-### Visualization
-
-* Matplotlib
-* Seaborn
-* Plotly
-
-### Configuration
-
-* Hydra
-* OmegaConf
+* FastAPI Inference Service
+* GPU Monitoring
+* Throughput & Latency Tracking
+* Docker Deployment
+* Kubernetes Infrastructure
+* Model Registry
 
 ---
 
-## Repository Structure
+## System Architecture
 
 ```text
-llm-alignment-system/
-
-# System Architecture
-
-```
 ┌─────────────────────────────────────────────┐
 │                DATA LAYER                   │
 ├─────────────────────────────────────────────┤
@@ -174,7 +84,7 @@ llm-alignment-system/
 ┌─────────────────────────────────────────────┐
 │               MODEL LAYER                   │
 ├─────────────────────────────────────────────┤
-│ Qwen 2.5 Foundation Models                  │
+│ Qwen Foundation Models                      │
 │ LoRA / PEFT Configuration                   │
 │ Quantization & Memory Optimization          │
 └─────────────────────────────────────────────┘
@@ -197,7 +107,7 @@ llm-alignment-system/
 │ JSON Schema Compliance                      │
 │ Hallucination Analysis                      │
 │ Perplexity & Quality Metrics                │
-│ Cross-Stage Comparison (Base → SFT → DPO)   │
+│ Base → SFT → DPO Comparison                 │
 └─────────────────────────────────────────────┘
                      │
                      ▼
@@ -242,111 +152,98 @@ llm-alignment-system/
 └─────────────────────────────────────────────┘
 ```
 
-### Alignment Workflow
+---
 
-```
-Synthetic Dataset
-        │
-        ▼
-   Base Model
-        │
-        ▼
-  Baseline Metrics
-        │
-        ▼
-      SFT
-        │
-        ▼
-   SFT Metrics
-        │
-        ▼
-      DPO
-        │
-        ▼
-   DPO Metrics
-        │
-        ▼
+## Technology Stack
+
+### Core AI Stack
+
+* PyTorch
+* Transformers
+* PEFT
+* TRL
+* Accelerate
+
+### Data & Evaluation
+
+* Hugging Face Datasets
+* NumPy
+* Pandas
+* Scikit-Learn
+* JSON Schema
+
+### Monitoring & Deployment
+
+* FastAPI
+* Docker
+* Kubernetes
+* Prometheus
+* Grafana
+
+### Experiment Tracking
+
+* Weights & Biases
+* TensorBoard
+
+---
+
+## Alignment Workflow
+
+```text
+Base Model
+    │
+    ▼
+Baseline Benchmark
+    │
+    ▼
+SFT Training
+    │
+    ▼
+SFT Evaluation
+    │
+    ▼
+DPO Training
+    │
+    ▼
+DPO Evaluation
+    │
+    ▼
 Benchmark Comparison
-        │
-        ▼
+    │
+    ▼
 Research Analysis
-        │
-        ▼
+    │
+    ▼
 Production Deployment
-
 ```
 
 ---
 
-## Planned Experiments
+## Current Status
 
-### Experiment 1 — Supervised Fine-Tuning
+### Completed
 
-Train a base model on synthetic instruction datasets and compare against baseline performance.
+* Dataset Generation Pipeline
+* Evaluation Framework
+* Baseline Benchmarking
+* SFT Training Pipeline
+* DPO Training Pipeline
+* 224+ Automated Tests
 
-Metrics:
+### Planned
 
-* Exact Match
-* JSON Validity
-* Task Accuracy
-* ROUGE
-
-### Experiment 2 — Preference Optimization
-
-Apply DPO using ranked preference pairs.
-
-Metrics:
-
-* Preference Win Rate
-* Alignment Score
-* Instruction Following Quality
-
-### Experiment 3 — Representation Analysis
-
-Study how internal representations evolve after alignment.
-
-Metrics:
-
-* Layer Similarity
-* Embedding Drift
-* Attention Pattern Changes
-
----
-
-## Evaluation Strategy
-
-The project evaluates:
-
-* Baseline Model
-* SFT Model
-* DPO Model
-
-Comparison metrics include:
-
-* Accuracy
-* Consistency
-* Hallucination Rate
-* Structured Output Validity
-* Inference Latency
-* Memory Consumption
-
----
-
-## Future Work
-
-* Reward Modeling
-* RLHF Pipeline
-* Multi-Agent Alignment
-* RAG-Augmented Alignment
-* Quantized Inference
+* Benchmark Report Generation
+* Research Dashboard
+* Visualization Layer
+* Monitoring Dashboard
+* Model Registry
 * Kubernetes Deployment
-* Distributed Training
+* Alignment Playground Demo
 
 ---
 
 ## Author
 
-Saniya Mihani
+**Saniya Mihani**
 
 AI Engineering • LLM Systems • Deep Learning • Generative AI
-WHERE
