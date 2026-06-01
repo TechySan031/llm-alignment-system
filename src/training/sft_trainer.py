@@ -172,11 +172,10 @@ def build_sft_config(cfg: DictConfig, num_training_steps: int = 0) -> SFTConfig:
         data_seed=cfg.training.get("seed", 42),
 
         # SFT-specific
-        max_seq_length=cfg.tokenizer.get("max_length", 2048),
-        packing=False,  # We pre-tokenise with custom loss masks
+        max_length=cfg.tokenizer.get("max_length", 2048),
+        packing=False,
         dataset_kwargs={"skip_prepare_dataset": True},
     )
-
 
 def build_compute_metrics(tokenizer: PreTrainedTokenizer):
     """
