@@ -38,3 +38,6 @@ wandb/
 # OS
 .DS_Store
 Thumbs.db
+
+*.zip
+artifacts/

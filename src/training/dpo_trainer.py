@@ -109,7 +109,7 @@ def build_dpo_config(cfg: DictConfig) -> DPOConfig:
         warmup_ratio=cfg.training.warmup_ratio,
         lr_scheduler_type=cfg.training.lr_scheduler_type,
         max_grad_norm=cfg.training.max_grad_norm,
-        optim="paged_adamw_32bit" if torch.cuda.is_available() else "adamw_torch",
+        optim="adamw_torch",
 
         # Precision
         bf16=use_bf16,
@@ -147,11 +147,10 @@ def build_dpo_config(cfg: DictConfig) -> DPOConfig:
         data_seed=cfg.training.get("seed", 42),
 
         # DPO-specific
+        max_length=cfg.dpo.max_length,
         beta=cfg.dpo.beta,
-        loss_type=cfg.dpo.get("loss_type", "sigmoid"),
-        max_prompt_length=cfg.dpo.get("max_prompt_length", 1024),
-        max_length=cfg.dpo.get("max_length", 2048),
-        label_smoothing=cfg.dpo.get("label_smoothing", 0.0),
+        label_smoothing=cfg.dpo.label_smoothing,
+        loss_type=cfg.dpo.loss_type,
     )
 
 
@@ -290,7 +289,6 @@ def build_dpo_trainer(
         args=dpo_config,
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
-        tokenizer=tokenizer,
         callbacks=callbacks,
     )
 

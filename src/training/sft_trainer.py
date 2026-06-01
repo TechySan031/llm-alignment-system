@@ -132,7 +132,7 @@ def build_sft_config(cfg: DictConfig, num_training_steps: int = 0) -> SFTConfig:
         warmup_ratio=cfg.training.warmup_ratio,
         lr_scheduler_type=cfg.training.lr_scheduler_type,
         max_grad_norm=cfg.training.max_grad_norm,
-        optim="paged_adamw_32bit" if torch.cuda.is_available() else "adamw_torch",
+        optim="adamw_torch",
 
         # Precision
         bf16=use_bf16,
@@ -172,11 +172,10 @@ def build_sft_config(cfg: DictConfig, num_training_steps: int = 0) -> SFTConfig:
         data_seed=cfg.training.get("seed", 42),
 
         # SFT-specific
-        max_seq_length=cfg.tokenizer.get("max_length", 2048),
-        packing=False,  # We pre-tokenise with custom loss masks
+        max_length=cfg.tokenizer.get("max_length", 2048),
+        packing=False,
         dataset_kwargs={"skip_prepare_dataset": True},
     )
-
 
 def build_compute_metrics(tokenizer: PreTrainedTokenizer):
     """
@@ -317,15 +316,15 @@ def build_sft_trainer(
         callbacks.extend(extra_callbacks)
 
     trainer = SFTTrainer(
-        model=model,
-        args=sft_config,
-        train_dataset=train_dataset,
-        eval_dataset=eval_dataset,
-        tokenizer=tokenizer,
-        data_collator=data_collator,
-        compute_metrics=build_compute_metrics(tokenizer),
-        callbacks=callbacks,
-    )
+    model=model,
+    args=sft_config,
+    train_dataset=train_dataset,
+    eval_dataset=eval_dataset,
+    processing_class=tokenizer,
+    data_collator=data_collator,
+    compute_metrics=build_compute_metrics(tokenizer),
+    callbacks=callbacks,
+)
 
     # Log effective batch size
     eff_batch = (
