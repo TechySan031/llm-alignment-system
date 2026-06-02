@@ -222,28 +222,81 @@ Production Deployment
 
 ---
 
-## Current Status
+## Benchmark Results
+
+Evaluation performed on 200 benchmark examples using the complete
+Base → SFT → DPO alignment pipeline.
+
+| Metric | SFT | DPO |
+|----------|----------:|----------:|
+| Exact Match | 6.5% | 5.0% |
+| Format Valid | 55.5% | 54.0% |
+| Schema Compliant | 55.5% | 54.0% |
+| Instruction Following | 55.5% | 51.5% |
+| Alignment Score | 57.3% | 52.0% |
+| Hallucination Rate | 2.0% | 15.0% |
+
+### Key Findings
+
+- SFT significantly improved instruction-following and formatting consistency.
+- DPO successfully completed end-to-end preference optimization.
+- DPO underperformed SFT on this benchmark, highlighting the sensitivity of preference optimization to:
+  - Preference dataset quality
+  - Pair construction strategy
+  - Hyperparameter selection
+  - Model scale
+
+This mirrors real-world alignment research where preference optimization does not automatically outperform supervised fine-tuning.
+
+## Project Status
 
 ### Completed
 
-* Dataset Generation Pipeline
-* Evaluation Framework
-* Baseline Benchmarking
-* SFT Training Pipeline
-* DPO Training Pipeline
-* 224+ Automated Tests
+✅ Synthetic Dataset Generation Pipeline
+
+✅ Preference Pair Generation Pipeline
+
+✅ Supervised Fine-Tuning (SFT)
+
+✅ Direct Preference Optimization (DPO)
+
+✅ LoRA / PEFT Integration
+
+✅ Automated Evaluation Framework
+
+✅ Hallucination Detection
+
+✅ Benchmark Comparison Pipeline
+
+✅ Kaggle GPU Validation
+
+✅ End-to-End Alignment Workflow
+
+✅ 224+ Automated Tests
+
+### In Progress
+
+🔄 Inference Deployment
+
+🔄 Alignment Playground (Hugging Face Space)
+
+🔄 Research Dashboard
+
+🔄 Monitoring Dashboard
 
 ### Planned
 
-* Benchmark Report Generation
-* Research Dashboard
-* Visualization Layer
-* Monitoring Dashboard
-* Model Registry
-* Kubernetes Deployment
-* Alignment Playground Demo
+📌 FastAPI Production Serving
+
+📌 Model Registry
+
+📌 Kubernetes Deployment
+
+📌 Distributed Training Support
 
 ---
+
+
 
 ## Author
 
